@@ -1,0 +1,10 @@
+C:\Users\User\source\repos\TicTacToe\TTT.BL\bin\Debug\TTT.BL.exe.config
+C:\Users\User\source\repos\TicTacToe\TTT.BL\bin\Debug\TTT.BL.exe
+C:\Users\User\source\repos\TicTacToe\TTT.BL\bin\Debug\TTT.BL.pdb
+C:\Users\User\source\repos\TicTacToe\TTT.BL\obj\Debug\TTT.BL.csprojAssemblyReference.cache
+C:\Users\User\source\repos\TicTacToe\TTT.BL\obj\Debug\TTT.BL.Properties.Resources.resources
+C:\Users\User\source\repos\TicTacToe\TTT.BL\obj\Debug\TTT.BL.csproj.GenerateResource.cache
+C:\Users\User\source\repos\TicTacToe\TTT.BL\obj\Debug\TTT.BL.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\TicTacToe\TTT.BL\obj\Debug\TTT.BL.exe
+C:\Users\User\source\repos\TicTacToe\TTT.BL\obj\Debug\TTT.BL.pdb
+C:\Users\User\source\repos\TicTacToe\TTT.BL\obj\Debug\TTT.BL.MainForm.resources

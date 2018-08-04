@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\TicTacToe\TTT.LOGIC\obj\Debug\TTT.LOGIC.csprojAssemblyReference.cache
+C:\Users\User\source\repos\TicTacToe\TTT.LOGIC\obj\Debug\TTT.LOGIC.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\TicTacToe\TTT.LOGIC\bin\Debug\TTT.LOGIC.dll
+C:\Users\User\source\repos\TicTacToe\TTT.LOGIC\bin\Debug\TTT.LOGIC.pdb
+C:\Users\User\source\repos\TicTacToe\TTT.LOGIC\obj\Debug\TTT.LOGIC.dll
+C:\Users\User\source\repos\TicTacToe\TTT.LOGIC\obj\Debug\TTT.LOGIC.pdb
