@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTT.VM", "TTT.BL\TTT.VM.csproj", "{0168C8AF-49A5-4DA1-B14F-100841FEC99E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTT.VM", "TTT.VM\TTT.VM.csproj", "{0168C8AF-49A5-4DA1-B14F-100841FEC99E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTT.LOGIC", "TTT.LOGIC\TTT.LOGIC.csproj", "{65324568-75B1-4485-8D34-E23B4F96DA95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTT.LOGIC", "TTT.Logic\TTT.LOGIC.csproj", "{65324568-75B1-4485-8D34-E23B4F96DA95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
