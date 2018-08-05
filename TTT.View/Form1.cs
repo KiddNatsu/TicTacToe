@@ -42,7 +42,7 @@ namespace TTT.View
                 buttons.Remove(button);
 
                 // Board handles the turn
-                board.PlayTurn(button);
+                board.PlayTurn(button.Name);
 
                 // TODO: Handle logic on another thread
                 // Thread playerThread = new Thread(() => board.PlayTurn(button));
@@ -54,7 +54,7 @@ namespace TTT.View
                     // TODO: Same as above, logic on another thread
                     // Thread opponentThread = new Thread(() => computer.MakeMove(buttons));
                     // opponentThread.Start();
-                    board.PlayTurn(computer.MakeMove(buttons));
+                    board.PlayTurn(computer.MakeMove());
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace TTT.View
         private void NewGame(Object sender, EventArgs e)
         {
             PopulateButtonArray();
-            board.AssignButtons(buttons);
+            //board.AssignButtons(buttons);
             UpdateLabels();
             optionsGroupBox.Enabled = true;
         }
@@ -122,6 +122,7 @@ namespace TTT.View
             MessageBox.Show(e.Result);
         }
 
+        // Subscriber to changes in tiles from the ViewModel
         private void TileValueChanged(object sender, EventArgs e)
         {
             Tile t = (Tile)sender;

@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\TicTacToe\TTT.ViewModel\obj\Debug\TTT.ViewModel.csprojAssemblyReference.cache
+C:\Users\User\source\repos\TicTacToe\TTT.ViewModel\obj\Debug\TTT.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\TicTacToe\TTT.ViewModel\bin\Debug\TTT.ViewModel.dll
+C:\Users\User\source\repos\TicTacToe\TTT.ViewModel\bin\Debug\TTT.ViewModel.pdb
+C:\Users\User\source\repos\TicTacToe\TTT.ViewModel\obj\Debug\TTT.ViewModel.dll
+C:\Users\User\source\repos\TicTacToe\TTT.ViewModel\obj\Debug\TTT.ViewModel.pdb

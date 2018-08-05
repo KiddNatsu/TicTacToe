@@ -26,17 +26,17 @@ namespace TTT.ViewModel
 
         // Each button represents a tile on the board
         // A00 = top left corner, A22 = bottom right corner
-        public ArrayList tiles = new ArrayList();
-        internal Button A00;
-        internal Button A01;
-        internal Button A02;
-        internal Button A10;
-        internal Button A11;
-        internal Button A12;
-        internal Button A20;
-        internal Button A21;
-        internal Button A22;
+        //internal Button A00;
+        //internal Button A01;
+        //internal Button A02;
+        //internal Button A10;
+        //internal Button A11;
+        //internal Button A12;
+        //internal Button A20;
+        //internal Button A21;
+        //internal Button A22;
 
+        public ArrayList tiles = new ArrayList();
         // Instead of buttons, tiles represents board
         internal Tile T00;
         internal Tile T01;
@@ -50,8 +50,8 @@ namespace TTT.ViewModel
 
         public Board(ArrayList buttons)
         {
-            AssignButtons(buttons);
             SetTiles();
+            AssignTiles();
             NewGame += StartNewGame;
         }
 
@@ -62,27 +62,18 @@ namespace TTT.ViewModel
             this.PlayersTurn = user;
         }
 
-        public void AssignButtons(ArrayList buttons)
+        public void AssignTiles()
         {
             tiles.Clear();
-            A00 = (Button)buttons[0];
-            A01 = (Button)buttons[1];
-            A02 = (Button)buttons[2];
-            A10 = (Button)buttons[3];
-            A11 = (Button)buttons[4];
-            A12 = (Button)buttons[5];
-            A20 = (Button)buttons[6];
-            A21 = (Button)buttons[7];
-            A22 = (Button)buttons[8];
-            tiles.Add(A00);
-            tiles.Add(A01);
-            tiles.Add(A02);
-            tiles.Add(A10);
-            tiles.Add(A11);
-            tiles.Add(A12);
-            tiles.Add(A20);
-            tiles.Add(A21);
-            tiles.Add(A22);
+            tiles.Add(T00);
+            tiles.Add(T01);
+            tiles.Add(T02);
+            tiles.Add(T10);
+            tiles.Add(T11);
+            tiles.Add(T12);
+            tiles.Add(T20);
+            tiles.Add(T21);
+            tiles.Add(T22);
         }
 
         public void SetTiles()
@@ -120,8 +111,8 @@ namespace TTT.ViewModel
         {
             PlayersTurn = user;
             Turns = 0;
-            A00.Text = A01.Text = A02.Text = A10.Text = A11.Text = A12.Text = A20.Text = A21.Text = A22.Text = "";
-            // T00.Value = T01.Value = T02.Value = T10.Value = T11.Value = T12.Value = T20.Value = T21.Value = T22.Value = "";
+            T00.Value = T01.Value = T02.Value = T10.Value = T11.Value = T12.Value = T20.Value = T21.Value = T22.Value = "";
+            AssignTiles();
         }
 
         public void OnWinLossOrDraw(string result)
@@ -131,11 +122,14 @@ namespace TTT.ViewModel
         }
 
         // When board tile clicked
-        public void PlayTurn(Button tile)
+        // Change to pass row and column which will allow find the right tile
+        public void PlayTurn(string tile)
         {
             Turns++;
-            tiles.Remove(tile);
-            PlayersTurn.MakeMove(tile);
+            Tile t = SelectTile(tile);
+            tiles.Remove(t);
+            // Pass the correct tile to player to make move
+            PlayersTurn.MakeMove(t);
 
             if (CheckWinner() == true)
             {
@@ -161,28 +155,56 @@ namespace TTT.ViewModel
 
         }
 
+        // Depending on the button clicked, corrosponding tile should be used
+        private Tile SelectTile(string tileName)
+        {
+            switch (tileName)
+            {
+                case "B00":
+                    return T00;
+                case "B01":
+                    return T01;
+                case "B02":
+                    return T02;
+                case "B10":
+                    return T10;
+                case "B11":
+                    return T11;
+                case "B12":
+                    return T12;
+                case "B20":
+                    return T20;
+                case "B21":
+                    return T21;
+                case "B22":
+                    return T22;
+                default:
+                    return null;
+            }
+        }
+
         private bool CheckWinner()
         {
             // Horizontal checks
-            if ((A00.Text == A01.Text) && (A01.Text == A02.Text) && (A02.Text != ""))
+            if ((T00.Value == T01.Value) && (T01.Value == T02.Value) && (T02.Value != ""))
                 return true;
-            else if ((A10.Text == A11.Text) && (A11.Text == A12.Text) && (A12.Text != ""))
+            else if ((T10.Value == T11.Value) && (T11.Value == T12.Value) && (T12.Value != ""))
                 return true;
-            else if ((A20.Text == A21.Text) && (A21.Text == A22.Text) && (A22.Text != ""))
+            else if ((T20.Value == T21.Value) && (T21.Value == T22.Value) && (T22.Value != ""))
                 return true;
 
             // Verticle checks
-            if ((A00.Text == A10.Text) && (A10.Text == A20.Text) && (A20.Text != ""))
+            if ((T00.Value == T10.Value) && (T10.Value == T20.Value) && (T20.Value != ""))
                 return true;
-            else if ((A01.Text == A11.Text) && (A11.Text == A21.Text) && (A21.Text != ""))
+            else if ((T01.Value == T11.Value) && (T11.Value == T21.Value) && (T21.Value != ""))
                 return true;
-            else if ((A02.Text == A12.Text) && (A12.Text == A22.Text) && (A22.Text != ""))
+            else if ((T02.Value == T12.Value) && (T12.Value == T22.Value) && (T22.Value != ""))
                 return true;
 
             // Diagonal checks
-            if ((A00.Text == A11.Text) && (A11.Text == A22.Text) && (A22.Text != ""))
+            if ((T00.Value == T11.Value) && (T11.Value == T22.Value) && (T22.Value != ""))
                 return true;
-            else if ((A02.Text == A11.Text) && (A11.Text == A20.Text) && (A20.Text != ""))
+            else if ((T02.Value == T11.Value) && (T11.Value == T20.Value) && (T20.Value != ""))
                 return true;
 
             // If no matches

@@ -21,94 +21,95 @@ namespace TTT.ViewModel
 
         // Checks if either player or CPU has a potential win, 
         // if yes then return the button that will cause it
-        private Button TryWinOrDefend(string s)
+        private string TryWinOrDefend(string s)
         {
             // Check horizontal
             // Top row
-            if ((Board.A00.Text == Board.A01.Text) && (Board.A01.Text == s) && (Board.A02.Text == ""))
-                return Board.A02;
-            else if ((Board.A00.Text == Board.A02.Text) && (Board.A02.Text == s) && (Board.A01.Text == ""))
-                return Board.A01;
-            else if ((Board.A01.Text == Board.A02.Text) && (Board.A02.Text == s) && (Board.A00.Text == ""))
-                return Board.A00;
+            if ((Board.T00.Value == Board.T01.Value) && (Board.T01.Value == s) && (Board.T02.Value == ""))
+                return "B02";
+            else if ((Board.T00.Value == Board.T02.Value) && (Board.T02.Value == s) && (Board.T01.Value == ""))
+                return "B01";
+            else if ((Board.T01.Value == Board.T02.Value) && (Board.T02.Value == s) && (Board.T00.Value == ""))
+                return "B00";
             // Middle row
-            else if ((Board.A10.Text == Board.A11.Text) && (Board.A11.Text == s) && (Board.A12.Text == ""))
-                return Board.A12;
-            else if ((Board.A10.Text == Board.A12.Text) && (Board.A12.Text == s) && (Board.A11.Text == ""))
-                return Board.A11;
-            else if ((Board.A11.Text == Board.A12.Text) && (Board.A12.Text == s) && (Board.A10.Text == ""))
-                return Board.A10;
+            else if ((Board.T10.Value == Board.T11.Value) && (Board.T11.Value == s) && (Board.T12.Value == ""))
+                return "B12";
+            else if ((Board.T10.Value == Board.T12.Value) && (Board.T12.Value == s) && (Board.T11.Value == ""))
+                return "B11";
+            else if ((Board.T11.Value == Board.T12.Value) && (Board.T12.Value == s) && (Board.T10.Value == ""))
+                return "B10";
             // Bottom row
-            else if ((Board.A20.Text == Board.A21.Text) && (Board.A21.Text == s) && (Board.A22.Text == ""))
-                return Board.A22;
-            else if ((Board.A20.Text == Board.A22.Text) && (Board.A22.Text == s) && (Board.A21.Text == ""))
-                return Board.A21;
-            else if ((Board.A21.Text == Board.A22.Text) && (Board.A22.Text == s) && (Board.A20.Text == ""))
-                return Board.A20;
+            else if ((Board.T20.Value == Board.T21.Value) && (Board.T21.Value == s) && (Board.T22.Value == ""))
+                return "B22";
+            else if ((Board.T20.Value == Board.T22.Value) && (Board.T22.Value == s) && (Board.T21.Value == ""))
+                return "B21";
+            else if ((Board.T21.Value == Board.T22.Value) && (Board.T22.Value == s) && (Board.T20.Value == ""))
+                return "B20";
             // Vertical Check
             // First column
-            else if ((Board.A00.Text == Board.A10.Text) && (Board.A10.Text == s) && (Board.A20.Text == ""))
-                return Board.A20;
-            else if ((Board.A00.Text == Board.A20.Text) && (Board.A20.Text == s) && (Board.A10.Text == ""))
-                return Board.A10;
-            else if ((Board.A20.Text == Board.A10.Text) && (Board.A10.Text == s) && (Board.A00.Text == ""))
-                return Board.A00;
+            else if ((Board.T00.Value == Board.T10.Value) && (Board.T10.Value == s) && (Board.T20.Value == ""))
+                return "B20";
+            else if ((Board.T00.Value == Board.T20.Value) && (Board.T20.Value == s) && (Board.T10.Value == ""))
+                return "B10";
+            else if ((Board.T20.Value == Board.T10.Value) && (Board.T10.Value == s) && (Board.T00.Value == ""))
+                return "B00";
             // Second column
-            else if ((Board.A01.Text == Board.A11.Text) && (Board.A11.Text == s) && (Board.A21.Text == ""))
-                return Board.A21;
-            else if ((Board.A01.Text == Board.A21.Text) && (Board.A21.Text == s) && (Board.A11.Text == ""))
-                return Board.A11;
-            else if ((Board.A21.Text == Board.A11.Text) && (Board.A11.Text == s) && (Board.A01.Text == ""))
-                return Board.A01;
+            else if ((Board.T01.Value == Board.T11.Value) && (Board.T11.Value == s) && (Board.T21.Value == ""))
+                return "B21";
+            else if ((Board.T01.Value == Board.T21.Value) && (Board.T21.Value == s) && (Board.T11.Value == ""))
+                return "B11";
+            else if ((Board.T21.Value == Board.T11.Value) && (Board.T11.Value == s) && (Board.T01.Value == ""))
+                return "B01";
             // Third column
-            else if ((Board.A02.Text == Board.A12.Text) && (Board.A12.Text == s) && (Board.A22.Text == ""))
-                return Board.A22;
-            else if ((Board.A02.Text == Board.A22.Text) && (Board.A22.Text == s) && (Board.A12.Text == ""))
-                return Board.A12;
-            else if ((Board.A22.Text == Board.A12.Text) && (Board.A12.Text == s) && (Board.A02.Text == ""))
-                return Board.A02;
+            else if ((Board.T02.Value == Board.T12.Value) && (Board.T12.Value == s) && (Board.T22.Value == ""))
+                return "B22";
+            else if ((Board.T02.Value == Board.T22.Value) && (Board.T22.Value == s) && (Board.T12.Value == ""))
+                return "B12";
+            else if ((Board.T22.Value == Board.T12.Value) && (Board.T12.Value == s) && (Board.T02.Value == ""))
+                return "B02";
             // Diagonal checks
             // Top left to bottom right
-            else if ((Board.A00.Text == Board.A11.Text) && (Board.A11.Text == s) && (Board.A22.Text == ""))
-                return Board.A22;
-            else if ((Board.A00.Text == Board.A22.Text) && (Board.A22.Text == s) && (Board.A11.Text == ""))
-                return Board.A11;
-            else if ((Board.A11.Text == Board.A22.Text) && (Board.A22.Text == s) && (Board.A00.Text == ""))
-                return Board.A00;
+            else if ((Board.T00.Value == Board.T11.Value) && (Board.T11.Value == s) && (Board.T22.Value == ""))
+                return "B22";
+            else if ((Board.T00.Value == Board.T22.Value) && (Board.T22.Value == s) && (Board.T11.Value == ""))
+                return "B11";
+            else if ((Board.T11.Value == Board.T22.Value) && (Board.T22.Value == s) && (Board.T00.Value == ""))
+                return "B00";
             // Top right to bottom left
-            else if ((Board.A02.Text == Board.A11.Text) && (Board.A11.Text == s) && (Board.A20.Text == ""))
-                return Board.A20;
-            else if ((Board.A20.Text == Board.A02.Text) && (Board.A02.Text == s) && (Board.A11.Text == ""))
-                return Board.A11;
-            else if ((Board.A11.Text == Board.A20.Text) && (Board.A20.Text == s) && (Board.A02.Text == ""))
-                return Board.A02;
+            else if ((Board.T02.Value == Board.T11.Value) && (Board.T11.Value == s) && (Board.T20.Value == ""))
+                return "B20";
+            else if ((Board.T20.Value == Board.T02.Value) && (Board.T02.Value == s) && (Board.T11.Value == ""))
+                return "B11";
+            else if ((Board.T11.Value == Board.T20.Value) && (Board.T20.Value == s) && (Board.T02.Value == ""))
+                return "B02";
             // If no potential winner next turn
             else
                 return null;
         }
 
         // When computers turn
-        public Button MakeMove(ArrayList buttons)
+        public string MakeMove()
         {
-            Button b = null;
-            b = TryWinOrDefend("O");
-            if (b != null)
-                return b;
+            string tile = null;
+            tile = TryWinOrDefend("O");
+            if (tile != null)
+                return tile;
             else
             {
-                b = TryWinOrDefend("X");
-                if (b != null)
-                    return b;
+                tile = TryWinOrDefend("X");
+                if (tile != null)
+                    return tile;
                 else
-                    return MoveRandom(buttons);
+                    return MoveRandom();
             }
         }
 
         // Computer makes a random move
-        private Button MoveRandom(ArrayList buttons)
+        private string MoveRandom()
         {
             Random r = new Random();
-            return (Button)buttons[r.Next(buttons.Count - 1)];
+            Tile t = (Tile)Board.tiles[r.Next(Board.tiles.Count - 1)];
+            return "B" + t.RowColumn;
         }
     }
 }

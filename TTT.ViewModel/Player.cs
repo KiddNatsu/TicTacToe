@@ -15,9 +15,9 @@ namespace TTT.ViewModel
         public string Name { get; set; }
         protected Board Board { get; set; }
 
-        public void MakeMove(Button tile)
+        public void MakeMove(Tile tile)
         {
-            tile.Text = Key;
+            tile.Value = Key;
         }
 
         public override string ToString()

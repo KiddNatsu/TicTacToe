@@ -11,15 +11,16 @@ namespace TTT.ViewModel
         public event EventHandler TileValueChanged;
 
         public string RowColumn { get; set; }
+        private string value;
         public string Value
         {
             get
             {
-                return Value;
+                return this.value;
             }
             set
             {
-                this.Value = value;
+                this.value = value;
                 // trigger event
                 // if not empty, invoke event                
                 TileValueChanged?.Invoke(this, EventArgs.Empty);

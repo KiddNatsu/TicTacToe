@@ -1,0 +1,13 @@
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.View.csprojAssemblyReference.cache
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.View.MainForm.resources
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.Properties.Resources.resources
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.View.csproj.GenerateResource.cache
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.View.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.exe
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.pdb
+C:\Users\User\source\repos\TicTacToe\TTT.View\bin\Debug\TTT.exe.config
+C:\Users\User\source\repos\TicTacToe\TTT.View\bin\Debug\TTT.exe
+C:\Users\User\source\repos\TicTacToe\TTT.View\bin\Debug\TTT.pdb
+C:\Users\User\source\repos\TicTacToe\TTT.View\bin\Debug\TTT.ViewModel.dll
+C:\Users\User\source\repos\TicTacToe\TTT.View\bin\Debug\TTT.ViewModel.pdb
+C:\Users\User\source\repos\TicTacToe\TTT.View\obj\Debug\TTT.View.csproj.CopyComplete
