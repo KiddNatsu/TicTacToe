@@ -80,7 +80,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TTT.Logic\TTT.ViewModel.csproj">
+    <ProjectReference Include="..\TTT.ViewModel\TTT.ViewModel.csproj">
       <Project>{65324568-75B1-4485-8D34-E23B4F96DA95}</Project>
       <Name>TTT.ViewModel</Name>
     </ProjectReference>

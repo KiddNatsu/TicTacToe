@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TTT.LOGIC
+namespace TTT.ViewModel
 {
     public class Board
     {
@@ -51,6 +51,7 @@ namespace TTT.LOGIC
         public Board(ArrayList buttons)
         {
             AssignButtons(buttons);
+            SetTiles();
             NewGame += StartNewGame;
         }
 
@@ -84,6 +85,32 @@ namespace TTT.LOGIC
             tiles.Add(A22);
         }
 
+        public void SetTiles()
+        {
+            T00 = new Tile("0", "0");
+            T01 = new Tile("0", "1");
+            T02 = new Tile("0", "2");
+            T10 = new Tile("1", "0");
+            T11 = new Tile("1", "1");
+            T12 = new Tile("1", "2");
+            T20 = new Tile("2", "0");
+            T21 = new Tile("2", "1");
+            T22 = new Tile("2", "2");
+        }
+
+        public void SubscribeToTiles(EventHandler eh)
+        {
+            T00.TileValueChanged += eh;
+            T01.TileValueChanged += eh;
+            T02.TileValueChanged += eh;
+            T10.TileValueChanged += eh;
+            T11.TileValueChanged += eh;
+            T12.TileValueChanged += eh;
+            T20.TileValueChanged += eh;
+            T21.TileValueChanged += eh;
+            T22.TileValueChanged += eh;
+        }
+
         public void OnNewGame()
         {
             NewGame?.Invoke(this, EventArgs.Empty);
@@ -94,6 +121,7 @@ namespace TTT.LOGIC
             PlayersTurn = user;
             Turns = 0;
             A00.Text = A01.Text = A02.Text = A10.Text = A11.Text = A12.Text = A20.Text = A21.Text = A22.Text = "";
+            // T00.Value = T01.Value = T02.Value = T10.Value = T11.Value = T12.Value = T20.Value = T21.Value = T22.Value = "";
         }
 
         public void OnWinLossOrDraw(string result)

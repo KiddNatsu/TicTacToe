@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Threading;
 using System.Windows.Forms;
-using TTT.LOGIC;
+using TTT.ViewModel;
 
-namespace TTT.VM
+namespace TTT.View
 {
     public partial class MainForm : Form
     {
@@ -79,6 +79,7 @@ namespace TTT.VM
             board.SetMembers(user, computer);
             board.NewGame += NewGame;
             board.WinLossOrDraw += GameWinLossOrDraw;
+            board.SubscribeToTiles(TileValueChanged);
         }
 
         private void NewGameBtn_Click(object sender, EventArgs e)
@@ -119,6 +120,41 @@ namespace TTT.VM
         private void GameWinLossOrDraw(object sender, WinLossOrDrawEventArgs e)
         {
             MessageBox.Show(e.Result);
+        }
+
+        private void TileValueChanged(object sender, EventArgs e)
+        {
+            Tile t = (Tile)sender;
+            switch (t.RowColumn)
+            {
+                case "00":
+                    B00.Text = t.Value;
+                    break;
+                case "01":
+                    B01.Text = t.Value;
+                    break;
+                case "02":
+                    B02.Text = t.Value;
+                    break;
+                case "10":
+                    B10.Text = t.Value;
+                    break;
+                case "11":
+                    B11.Text = t.Value;
+                    break;
+                case "12":
+                    B12.Text = t.Value;
+                    break;
+                case "20":
+                    B20.Text = t.Value;
+                    break;
+                case "21":
+                    B21.Text = t.Value;
+                    break;
+                case "22":
+                    B22.Text = t.Value;
+                    break;
+            }
         }
     }
 }

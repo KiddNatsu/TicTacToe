@@ -1,4 +1,4 @@
-﻿namespace TTT.VM
+﻿namespace TTT.View
 {
     partial class MainForm
     {

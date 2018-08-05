@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TTT.LOGIC
+namespace TTT.ViewModel
 {
     public class Player
     {

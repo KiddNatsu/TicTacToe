@@ -4,12 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTT.LOGIC
+namespace TTT.ViewModel
 {
-    class Tile
+    public class Tile
     {
-        public int Row { get; set; }
-        public int Column { get; set; }
-        public string Value { get; set; }
+        public event EventHandler TileValueChanged;
+
+        public string RowColumn { get; set; }
+        public string Value
+        {
+            get
+            {
+                return Value;
+            }
+            set
+            {
+                this.Value = value;
+                // trigger event
+                // if not empty, invoke event                
+                TileValueChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public Tile(string row, string column)
+        {
+            this.RowColumn = row + column;
+        }
     }
 }

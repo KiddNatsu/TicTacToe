@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TTT.LOGIC
+namespace TTT.ViewModel
 {
     public class WinLossOrDrawEventArgs : EventArgs
     {

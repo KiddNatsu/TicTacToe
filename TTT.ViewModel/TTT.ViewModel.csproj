@@ -7,8 +7,8 @@
     <ProjectGuid>{65324568-75B1-4485-8D34-E23B4F96DA95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TTT.LOGIC</RootNamespace>
-    <AssemblyName>TTT.LOGIC</AssemblyName>
+    <RootNamespace>TTT.ViewModel</RootNamespace>
+    <AssemblyName>TTT.ViewModel</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

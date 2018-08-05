@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TTT.VM.Properties {
+namespace TTT.View.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
