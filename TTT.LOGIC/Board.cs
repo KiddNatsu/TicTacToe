@@ -18,15 +18,17 @@ namespace TTT.LOGIC
         public int P2 { get; set; } = 0;
         public int Draw { get; set; } = 0;
 
-        // True = player turn, false = CPU turn
-        public bool OnTurn { get; set; } = true;
+        // Hold players on board
+        public Player PlayersTurn { get; set; }// Hold player whos turn it is
+        private User user;
+        private Computer cpu;
 
         public event EventHandler NewGame;
         public event EventHandler<WinLossOrDrawEventArgs> WinLossOrDraw;
 
         // Each button represents a tile on the board
         // A00 = top left corner, A22 = bottom right corner
-        private ArrayList tiles = new ArrayList();
+        public ArrayList tiles = new ArrayList();
         internal Button A00;
         internal Button A01;
         internal Button A02;
@@ -41,6 +43,13 @@ namespace TTT.LOGIC
         {
             AssignButtons(buttons);
             NewGame += StartNewGame;
+        }
+
+        public void SetMembers(User user, Computer computer)
+        {
+            this.user = user;
+            this.cpu = computer;
+            this.PlayersTurn = user;
         }
 
         public void AssignButtons(ArrayList buttons)
@@ -73,54 +82,46 @@ namespace TTT.LOGIC
 
         private void StartNewGame(Object sender, EventArgs e)
         {
-            OnTurn = true;
+            PlayersTurn = user;
             Turns = 0;
             A00.Text = A01.Text = A02.Text = A10.Text = A11.Text = A12.Text = A20.Text = A21.Text = A22.Text = "";
         }
 
         public void OnWinLossOrDraw(string result)
         {
+            // Short hand: if event 'WinLossOrDraw' is not null, invoke it
             WinLossOrDraw?.Invoke(this, new WinLossOrDrawEventArgs(result));
         }
 
+        // When board tile clicked
         public void PlayTurn(Button tile)
         {
+            Turns++;
             tiles.Remove(tile);
+            PlayersTurn.MakeMove(tile);
 
-            if (tile.Text == "")
+            if (CheckWinner() == true)
             {
-      
-                if (OnTurn)
-                    tile.Text = "X";
-                else
-                    tile.Text = "O";
-
-                Turns++;
-                OnTurn = !OnTurn;
-
-                if (CheckWinner() == true)
-                {
-                    if (OnTurn == false)
-                    {
-                        OnWinLossOrDraw("You win!");
-                        P1++;
-                        OnNewGame();
-                    }
-                    else
-                    {
-                        OnWinLossOrDraw("CPU win!");
-                        P2++;
-                        OnNewGame();
-                    }
-                }
-
-                if ((CheckDraw() == true) && (CheckWinner() == false))
-                {
-                    OnWinLossOrDraw("Draw!");
-                    Draw++;
-                    OnNewGame();
-                }
+                OnWinLossOrDraw(PlayersTurn.ToString());
+                PlayersTurn.Points++;
+                OnNewGame();
+                return;
             }
+
+            if ((CheckDraw() == true) && (CheckWinner() == false))
+            {
+                OnWinLossOrDraw("Draw!");
+                Draw++;
+                OnNewGame();
+                return;
+            }
+
+            // Change who's turn it is
+            if (PlayersTurn == user)
+                PlayersTurn = cpu;
+            else
+                PlayersTurn = user;
+
         }
 
         private bool CheckWinner()

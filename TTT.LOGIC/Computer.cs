@@ -11,10 +11,12 @@ namespace TTT.LOGIC
     // Computer operations, moves etc.
     public class Computer : Player
     {
-        public Computer(Board board)
+        public Computer(Board board, string key)
         {
             // Board inherited from player class
             this.Board = board;
+            this.Key = key;
+            this.Name = "Computer " + key;
         }
 
         // Checks if either player or CPU has a potential win, 
