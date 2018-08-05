@@ -251,6 +251,8 @@
             this.Controls.Add(this.A01);
             this.Controls.Add(this.A00);
             this.Controls.Add(this.optionsGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tic Tac Toe";
