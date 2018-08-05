@@ -14,8 +14,6 @@ namespace TTT.LOGIC
         public int Turns { get; set; } = 0;
 
         // Keep track of player wins and draws
-        public int P1 { get; set; } = 0;
-        public int P2 { get; set; } = 0;
         public int Draw { get; set; } = 0;
 
         // Hold players on board

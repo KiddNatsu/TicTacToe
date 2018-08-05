@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Threading;
 using System.Windows.Forms;
 using TTT.LOGIC;
 
@@ -43,9 +44,16 @@ namespace TTT.VM
                 // Board handles the turn
                 board.PlayTurn(button);
 
-                if ((multiPlayer.Checked) && (board.PlayersTurn is Computer))
+                // TODO: Handle logic on another thread
+                // Thread playerThread = new Thread(() => board.PlayTurn(button));
+                // playerThread.Start();
+
+                if ((singlePlayer.Checked) && (board.PlayersTurn is Computer))
                 {
                     // If computers turn
+                    // TODO: Same as above, logic on another thread
+                    // Thread opponentThread = new Thread(() => computer.MakeMove(buttons));
+                    // opponentThread.Start();
                     board.PlayTurn(computer.MakeMove(buttons));
                 }
             }
@@ -88,15 +96,15 @@ namespace TTT.VM
 
         private void UpdateLabels()
         {
-            playerWins.Text = $"X (Player): { board.P1 }";
-            cpuWins.Text = $"O (Opponent): { board.P2 }";
+            playerWins.Text = $"X (Player): { user.Points }";
+            cpuWins.Text = $"O (Opponent): { computer.Points }";
             draws.Text = $"Draw: { board.Draw }";
         }
 
         private void ResetGame()
         {
-            board.P1 = 0;
-            board.P2 = 0;
+            user.Points = 0;
+            computer.Points = 0;
             board.Draw = 0;
             board.OnNewGame();
             optionsGroupBox.Enabled = true;
