@@ -37,6 +37,17 @@ namespace TTT.LOGIC
         internal Button A21;
         internal Button A22;
 
+        // Instead of buttons, tiles represents board
+        internal Tile T00;
+        internal Tile T01;
+        internal Tile T02;
+        internal Tile T10;
+        internal Tile T11;
+        internal Tile T12;
+        internal Tile T20;
+        internal Tile T21;
+        internal Tile T22;
+
         public Board(ArrayList buttons)
         {
             AssignButtons(buttons);

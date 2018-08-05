@@ -21,15 +21,15 @@ namespace TTT.VM
         private void PopulateButtonArray()
         {
             buttons.Clear();
-            buttons.Add(A00);
-            buttons.Add(A01);
-            buttons.Add(A02);
-            buttons.Add(A10);
-            buttons.Add(A11);
-            buttons.Add(A12);
-            buttons.Add(A20);
-            buttons.Add(A21);
-            buttons.Add(A22);
+            buttons.Add(B00);
+            buttons.Add(B01);
+            buttons.Add(B02);
+            buttons.Add(B10);
+            buttons.Add(B11);
+            buttons.Add(B12);
+            buttons.Add(B20);
+            buttons.Add(B21);
+            buttons.Add(B22);
         }
 
         private void buttonClick(object sender, EventArgs e)

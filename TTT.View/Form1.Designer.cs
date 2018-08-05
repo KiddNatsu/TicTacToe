@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.A00 = new System.Windows.Forms.Button();
-            this.A01 = new System.Windows.Forms.Button();
-            this.A02 = new System.Windows.Forms.Button();
-            this.A12 = new System.Windows.Forms.Button();
-            this.A11 = new System.Windows.Forms.Button();
-            this.A10 = new System.Windows.Forms.Button();
-            this.A22 = new System.Windows.Forms.Button();
-            this.A21 = new System.Windows.Forms.Button();
-            this.A20 = new System.Windows.Forms.Button();
+            this.B00 = new System.Windows.Forms.Button();
+            this.B01 = new System.Windows.Forms.Button();
+            this.B02 = new System.Windows.Forms.Button();
+            this.B12 = new System.Windows.Forms.Button();
+            this.B11 = new System.Windows.Forms.Button();
+            this.B10 = new System.Windows.Forms.Button();
+            this.B22 = new System.Windows.Forms.Button();
+            this.B21 = new System.Windows.Forms.Button();
+            this.B20 = new System.Windows.Forms.Button();
             this.NewGameBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
             this.ResetBtn = new System.Windows.Forms.Button();
@@ -49,95 +49,95 @@
             this.optionsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // A00
+            // B00
             // 
-            this.A00.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A00.Location = new System.Drawing.Point(29, 92);
-            this.A00.Name = "A00";
-            this.A00.Size = new System.Drawing.Size(100, 100);
-            this.A00.TabIndex = 0;
-            this.A00.UseVisualStyleBackColor = true;
-            this.A00.Click += new System.EventHandler(this.buttonClick);
+            this.B00.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B00.Location = new System.Drawing.Point(29, 92);
+            this.B00.Name = "B00";
+            this.B00.Size = new System.Drawing.Size(100, 100);
+            this.B00.TabIndex = 0;
+            this.B00.UseVisualStyleBackColor = true;
+            this.B00.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A01
+            // B01
             // 
-            this.A01.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A01.Location = new System.Drawing.Point(135, 92);
-            this.A01.Name = "A01";
-            this.A01.Size = new System.Drawing.Size(100, 100);
-            this.A01.TabIndex = 1;
-            this.A01.UseVisualStyleBackColor = true;
-            this.A01.Click += new System.EventHandler(this.buttonClick);
+            this.B01.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B01.Location = new System.Drawing.Point(135, 92);
+            this.B01.Name = "B01";
+            this.B01.Size = new System.Drawing.Size(100, 100);
+            this.B01.TabIndex = 1;
+            this.B01.UseVisualStyleBackColor = true;
+            this.B01.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A02
+            // B02
             // 
-            this.A02.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A02.Location = new System.Drawing.Point(241, 92);
-            this.A02.Name = "A02";
-            this.A02.Size = new System.Drawing.Size(100, 100);
-            this.A02.TabIndex = 2;
-            this.A02.UseVisualStyleBackColor = true;
-            this.A02.Click += new System.EventHandler(this.buttonClick);
+            this.B02.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B02.Location = new System.Drawing.Point(241, 92);
+            this.B02.Name = "B02";
+            this.B02.Size = new System.Drawing.Size(100, 100);
+            this.B02.TabIndex = 2;
+            this.B02.UseVisualStyleBackColor = true;
+            this.B02.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A12
+            // B12
             // 
-            this.A12.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A12.Location = new System.Drawing.Point(241, 198);
-            this.A12.Name = "A12";
-            this.A12.Size = new System.Drawing.Size(100, 100);
-            this.A12.TabIndex = 5;
-            this.A12.UseVisualStyleBackColor = true;
-            this.A12.Click += new System.EventHandler(this.buttonClick);
+            this.B12.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B12.Location = new System.Drawing.Point(241, 198);
+            this.B12.Name = "B12";
+            this.B12.Size = new System.Drawing.Size(100, 100);
+            this.B12.TabIndex = 5;
+            this.B12.UseVisualStyleBackColor = true;
+            this.B12.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A11
+            // B11
             // 
-            this.A11.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A11.Location = new System.Drawing.Point(135, 198);
-            this.A11.Name = "A11";
-            this.A11.Size = new System.Drawing.Size(100, 100);
-            this.A11.TabIndex = 4;
-            this.A11.UseVisualStyleBackColor = true;
-            this.A11.Click += new System.EventHandler(this.buttonClick);
+            this.B11.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B11.Location = new System.Drawing.Point(135, 198);
+            this.B11.Name = "B11";
+            this.B11.Size = new System.Drawing.Size(100, 100);
+            this.B11.TabIndex = 4;
+            this.B11.UseVisualStyleBackColor = true;
+            this.B11.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A10
+            // B10
             // 
-            this.A10.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A10.Location = new System.Drawing.Point(29, 198);
-            this.A10.Name = "A10";
-            this.A10.Size = new System.Drawing.Size(100, 100);
-            this.A10.TabIndex = 3;
-            this.A10.UseVisualStyleBackColor = true;
-            this.A10.Click += new System.EventHandler(this.buttonClick);
+            this.B10.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B10.Location = new System.Drawing.Point(29, 198);
+            this.B10.Name = "B10";
+            this.B10.Size = new System.Drawing.Size(100, 100);
+            this.B10.TabIndex = 3;
+            this.B10.UseVisualStyleBackColor = true;
+            this.B10.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A22
+            // B22
             // 
-            this.A22.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A22.Location = new System.Drawing.Point(241, 304);
-            this.A22.Name = "A22";
-            this.A22.Size = new System.Drawing.Size(100, 100);
-            this.A22.TabIndex = 8;
-            this.A22.UseVisualStyleBackColor = true;
-            this.A22.Click += new System.EventHandler(this.buttonClick);
+            this.B22.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B22.Location = new System.Drawing.Point(241, 304);
+            this.B22.Name = "B22";
+            this.B22.Size = new System.Drawing.Size(100, 100);
+            this.B22.TabIndex = 8;
+            this.B22.UseVisualStyleBackColor = true;
+            this.B22.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A21
+            // B21
             // 
-            this.A21.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A21.Location = new System.Drawing.Point(135, 304);
-            this.A21.Name = "A21";
-            this.A21.Size = new System.Drawing.Size(100, 100);
-            this.A21.TabIndex = 7;
-            this.A21.UseVisualStyleBackColor = true;
-            this.A21.Click += new System.EventHandler(this.buttonClick);
+            this.B21.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B21.Location = new System.Drawing.Point(135, 304);
+            this.B21.Name = "B21";
+            this.B21.Size = new System.Drawing.Size(100, 100);
+            this.B21.TabIndex = 7;
+            this.B21.UseVisualStyleBackColor = true;
+            this.B21.Click += new System.EventHandler(this.buttonClick);
             // 
-            // A20
+            // B20
             // 
-            this.A20.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A20.Location = new System.Drawing.Point(29, 304);
-            this.A20.Name = "A20";
-            this.A20.Size = new System.Drawing.Size(100, 100);
-            this.A20.TabIndex = 6;
-            this.A20.UseVisualStyleBackColor = true;
-            this.A20.Click += new System.EventHandler(this.buttonClick);
+            this.B20.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B20.Location = new System.Drawing.Point(29, 304);
+            this.B20.Name = "B20";
+            this.B20.Size = new System.Drawing.Size(100, 100);
+            this.B20.TabIndex = 6;
+            this.B20.UseVisualStyleBackColor = true;
+            this.B20.Click += new System.EventHandler(this.buttonClick);
             // 
             // NewGameBtn
             // 
@@ -241,15 +241,15 @@
             this.Controls.Add(this.ResetBtn);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.NewGameBtn);
-            this.Controls.Add(this.A22);
-            this.Controls.Add(this.A21);
-            this.Controls.Add(this.A20);
-            this.Controls.Add(this.A12);
-            this.Controls.Add(this.A11);
-            this.Controls.Add(this.A10);
-            this.Controls.Add(this.A02);
-            this.Controls.Add(this.A01);
-            this.Controls.Add(this.A00);
+            this.Controls.Add(this.B22);
+            this.Controls.Add(this.B21);
+            this.Controls.Add(this.B20);
+            this.Controls.Add(this.B12);
+            this.Controls.Add(this.B11);
+            this.Controls.Add(this.B10);
+            this.Controls.Add(this.B02);
+            this.Controls.Add(this.B01);
+            this.Controls.Add(this.B00);
             this.Controls.Add(this.optionsGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -266,15 +266,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button A00;
-        private System.Windows.Forms.Button A01;
-        private System.Windows.Forms.Button A02;
-        private System.Windows.Forms.Button A12;
-        private System.Windows.Forms.Button A11;
-        private System.Windows.Forms.Button A10;
-        private System.Windows.Forms.Button A22;
-        private System.Windows.Forms.Button A21;
-        private System.Windows.Forms.Button A20;
+        private System.Windows.Forms.Button B00;
+        private System.Windows.Forms.Button B01;
+        private System.Windows.Forms.Button B02;
+        private System.Windows.Forms.Button B12;
+        private System.Windows.Forms.Button B11;
+        private System.Windows.Forms.Button B10;
+        private System.Windows.Forms.Button B22;
+        private System.Windows.Forms.Button B21;
+        private System.Windows.Forms.Button B20;
         private System.Windows.Forms.Button NewGameBtn;
         private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.Button ResetBtn;
