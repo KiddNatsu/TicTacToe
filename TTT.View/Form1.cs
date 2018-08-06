@@ -12,24 +12,13 @@ namespace TTT.View
         Board board;
         User user;
         Computer computer;
+        Thread mainThread;
+
+        private delegate void UpdateTilesOnMainThread(object sender, EventArgs e);
 
         public MainForm()
         {
             InitializeComponent();
-        }
-        
-        private void PopulateButtonArray()
-        {
-            buttons.Clear();
-            buttons.Add(B00);
-            buttons.Add(B01);
-            buttons.Add(B02);
-            buttons.Add(B10);
-            buttons.Add(B11);
-            buttons.Add(B12);
-            buttons.Add(B20);
-            buttons.Add(B21);
-            buttons.Add(B22);
         }
 
         private void buttonClick(object sender, EventArgs e)
@@ -39,21 +28,20 @@ namespace TTT.View
             Button button = (Button)sender;
             if (button.Text == "")
             {
-                buttons.Remove(button);
-
+                // TODO: Handle logic on another thread
+                //Thread playerThread = new Thread(() => board.PlayTurn(button.Name));
+                //playerThread.Start();
+                
                 // Board handles the turn
                 board.PlayTurn(button.Name);
 
-                // TODO: Handle logic on another thread
-                // Thread playerThread = new Thread(() => board.PlayTurn(button));
-                // playerThread.Start();
-
                 if ((singlePlayer.Checked) && (board.PlayersTurn is Computer))
                 {
+                    Thread.Sleep(1500);
                     // If computers turn
                     // TODO: Same as above, logic on another thread
-                    // Thread opponentThread = new Thread(() => computer.MakeMove(buttons));
-                    // opponentThread.Start();
+                    //Thread opponentThread = new Thread(() => computer.MakeMove());
+                    //opponentThread.Start();
                     board.PlayTurn(computer.MakeMove());
                 }
             }
@@ -66,7 +54,6 @@ namespace TTT.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            PopulateButtonArray();
             InitialiseMembers();
             UpdateLabels();
         }
@@ -80,6 +67,7 @@ namespace TTT.View
             board.NewGame += NewGame;
             board.WinLossOrDraw += GameWinLossOrDraw;
             board.SubscribeToTiles(TileValueChanged);
+            mainThread = Thread.CurrentThread;
         }
 
         private void NewGameBtn_Click(object sender, EventArgs e)
@@ -89,8 +77,6 @@ namespace TTT.View
 
         private void NewGame(Object sender, EventArgs e)
         {
-            PopulateButtonArray();
-            //board.AssignButtons(buttons);
             UpdateLabels();
             optionsGroupBox.Enabled = true;
         }
@@ -109,7 +95,6 @@ namespace TTT.View
             board.Draw = 0;
             board.OnNewGame();
             optionsGroupBox.Enabled = true;
-
         }
 
         private void ResetBtn_Click(object sender, EventArgs e)
@@ -125,7 +110,17 @@ namespace TTT.View
         // Subscriber to changes in tiles from the ViewModel
         private void TileValueChanged(object sender, EventArgs e)
         {
+
             Tile t = (Tile)sender;
+
+            // Check what thread method is running on
+            //if (Thread.CurrentThread != mainThread)
+            //{
+            //    var del = new UpdateTilesOnMainThread(TileValueChanged);
+            //    this.BeginInvoke(del, new object[] { sender, e });
+            //    return;
+            //}
+
             switch (t.RowColumn)
             {
                 case "00":

@@ -24,18 +24,6 @@ namespace TTT.ViewModel
         public event EventHandler NewGame;
         public event EventHandler<WinLossOrDrawEventArgs> WinLossOrDraw;
 
-        // Each button represents a tile on the board
-        // A00 = top left corner, A22 = bottom right corner
-        //internal Button A00;
-        //internal Button A01;
-        //internal Button A02;
-        //internal Button A10;
-        //internal Button A11;
-        //internal Button A12;
-        //internal Button A20;
-        //internal Button A21;
-        //internal Button A22;
-
         public ArrayList tiles = new ArrayList();
         // Instead of buttons, tiles represents board
         internal Tile T00;

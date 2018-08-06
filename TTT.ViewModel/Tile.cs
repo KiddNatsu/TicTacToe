@@ -30,6 +30,7 @@ namespace TTT.ViewModel
         public Tile(string row, string column)
         {
             this.RowColumn = row + column;
+            this.value = "";
         }
     }
 }
