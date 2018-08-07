@@ -23,7 +23,7 @@ namespace TTT.ViewModel
                 this.value = value;
                 // trigger event
                 // if not empty, invoke event                
-                TileValueChanged?.Invoke(this, EventArgs.Empty);
+                OnTileValueChanged();
             }
         }
 
@@ -31,6 +31,11 @@ namespace TTT.ViewModel
         {
             this.RowColumn = row + column;
             this.value = "";
+        }
+
+        private void OnTileValueChanged()
+        {
+            TileValueChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

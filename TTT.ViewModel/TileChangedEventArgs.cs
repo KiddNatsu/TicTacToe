@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TTT.ViewModel
 {
-    class TileChangedEventArgs : EventArgs
+    public class TileChangedEventArgs : EventArgs
     {
         public string RowColumn { get; set; }
 

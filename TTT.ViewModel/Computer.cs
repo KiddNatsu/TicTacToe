@@ -17,7 +17,7 @@ namespace TTT.ViewModel
             // Board inherited from player class
             this.Board = board;
             this.Key = key;
-            this.Name = "Computer " + key;
+            this.Name = "Player " + key;
         }
 
         // Checks if either player or CPU has a potential win, 
@@ -99,10 +99,15 @@ namespace TTT.ViewModel
             else
             {
                 tile = TryWinOrDefend("X");
-                if (tile != null)
-                    return tile;
-                else
-                    return MoveRandom();
+
+                //if (tile != null)
+                //    return tile;
+                //else
+                //    return MoveRandom();
+
+                // Short hand for the above
+                return (tile == null) ? MoveRandom() : tile;
+                
             }
         }
 

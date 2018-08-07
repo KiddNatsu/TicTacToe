@@ -12,10 +12,7 @@ namespace TTT.ViewModel
     public class Board
     {
         // Count turns
-        // public int Turns { get; set; } = 0;
-        // made atomic
-        private static int turns;
-
+        public int Turns { get; set; } = 0;        
         private static object stateGuard = new object();
 
         // Keep track of player wins and draws
@@ -46,7 +43,6 @@ namespace TTT.ViewModel
             SetTiles();
             AssignTiles();
             NewGame += StartNewGame;
-            turns = 0;
         }
 
         public void SetMembers(User user, Computer computer)
@@ -104,7 +100,7 @@ namespace TTT.ViewModel
         private void StartNewGame(Object sender, EventArgs e)
         {
             PlayersTurn = user;
-            turns = 0;
+            Turns = 0;
             T00.Value = T01.Value = T02.Value = T10.Value = T11.Value = T12.Value = T20.Value = T21.Value = T22.Value = "";
             AssignTiles();
         }
@@ -119,12 +115,12 @@ namespace TTT.ViewModel
         // Change to pass row and column which will allow find the right tile
         public void PlayTurn(string tile)
         {
+            // Only one thread can change 'this' values at a time
             lock (stateGuard)
             {
-                Interlocked.Increment(ref turns);
+                Turns++;
                 Tile t = SelectTile(tile);
 
-                // Use thread safe here
                 tiles.Remove(t);
 
 
@@ -147,7 +143,7 @@ namespace TTT.ViewModel
                     return;
                 }
 
-                // Change who's turn it is
+                // Change who's turn it 
                 if (PlayersTurn == user)
                     PlayersTurn = cpu;
                 else
@@ -213,7 +209,7 @@ namespace TTT.ViewModel
 
         public bool CheckDraw()
         {
-            if (turns == 9)
+            if (Turns == 9)
                 return true;
             else
                 return false;
