@@ -15,6 +15,8 @@ namespace TTT.View
         Thread mainThread;
 
         private delegate void UpdateTilesOnMainThread(object sender, EventArgs e);
+        private delegate void UpdateLabelsOnMainThread(object sender, EventArgs e);
+        private delegate void StartNewGameOnMainThread(object sender, EventArgs e);
 
         public MainForm()
         {
@@ -29,20 +31,19 @@ namespace TTT.View
             if (button.Text == "")
             {
                 // TODO: Handle logic on another thread
-                //Thread playerThread = new Thread(() => board.PlayTurn(button.Name));
-                //playerThread.Start();
-                
-                // Board handles the turn
-                board.PlayTurn(button.Name);
+                Thread playerThread = new Thread(() => board.PlayTurn(button.Name));
+                playerThread.Start();
 
+                // Board handles the turn
+                //board.PlayTurn(button.Name);
+                playerThread.Join();
                 if ((singlePlayer.Checked) && (board.PlayersTurn is Computer))
                 {
-                    Thread.Sleep(1500);
                     // If computers turn
                     // TODO: Same as above, logic on another thread
-                    //Thread opponentThread = new Thread(() => computer.MakeMove());
-                    //opponentThread.Start();
-                    board.PlayTurn(computer.MakeMove());
+                    Thread opponentThread = new Thread(() => board.PlayTurn(computer.MakeMove()));
+                    opponentThread.Start();
+                    //board.PlayTurn(computer.MakeMove());
                 }
             }
         }
@@ -77,12 +78,24 @@ namespace TTT.View
 
         private void NewGame(Object sender, EventArgs e)
         {
+            if (Thread.CurrentThread != mainThread)
+            {
+                var del = new StartNewGameOnMainThread(NewGame);
+                this.BeginInvoke(del, new object[] { sender, e });
+                return;
+            }
             UpdateLabels();
             optionsGroupBox.Enabled = true;
         }
 
         private void UpdateLabels()
         {
+            if (Thread.CurrentThread != mainThread)
+            {
+                var del = new UpdateLabelsOnMainThread(TileValueChanged);
+                this.BeginInvoke(del, new object[] { this, EventArgs.Empty });
+                return;
+            }
             playerWins.Text = $"X (Player): { user.Points }";
             cpuWins.Text = $"O (Opponent): { computer.Points }";
             draws.Text = $"Draw: { board.Draw }";
@@ -114,12 +127,12 @@ namespace TTT.View
             Tile t = (Tile)sender;
 
             // Check what thread method is running on
-            //if (Thread.CurrentThread != mainThread)
-            //{
-            //    var del = new UpdateTilesOnMainThread(TileValueChanged);
-            //    this.BeginInvoke(del, new object[] { sender, e });
-            //    return;
-            //}
+            if (Thread.CurrentThread != mainThread)
+            {
+                var del = new UpdateTilesOnMainThread(TileValueChanged);
+                this.BeginInvoke(del, new object[] { sender, e });
+                return;
+            }
 
             switch (t.RowColumn)
             {

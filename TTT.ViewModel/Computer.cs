@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -90,6 +91,7 @@ namespace TTT.ViewModel
         // When computers turn
         public string MakeMove()
         {
+            Thread.Sleep(500);
             string tile = null;
             tile = TryWinOrDefend("O");
             if (tile != null)

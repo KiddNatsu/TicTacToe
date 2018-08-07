@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,7 +12,11 @@ namespace TTT.ViewModel
     public class Board
     {
         // Count turns
-        public int Turns { get; set; } = 0;
+        // public int Turns { get; set; } = 0;
+        // made atomic
+        private static int turns;
+
+        private static object stateGuard = new object();
 
         // Keep track of player wins and draws
         public int Draw { get; set; } = 0;
@@ -41,6 +46,7 @@ namespace TTT.ViewModel
             SetTiles();
             AssignTiles();
             NewGame += StartNewGame;
+            turns = 0;
         }
 
         public void SetMembers(User user, Computer computer)
@@ -98,7 +104,7 @@ namespace TTT.ViewModel
         private void StartNewGame(Object sender, EventArgs e)
         {
             PlayersTurn = user;
-            Turns = 0;
+            turns = 0;
             T00.Value = T01.Value = T02.Value = T10.Value = T11.Value = T12.Value = T20.Value = T21.Value = T22.Value = "";
             AssignTiles();
         }
@@ -113,34 +119,40 @@ namespace TTT.ViewModel
         // Change to pass row and column which will allow find the right tile
         public void PlayTurn(string tile)
         {
-            Turns++;
-            Tile t = SelectTile(tile);
-            tiles.Remove(t);
-            // Pass the correct tile to player to make move
-            PlayersTurn.MakeMove(t);
-
-            if (CheckWinner() == true)
+            lock (stateGuard)
             {
-                OnWinLossOrDraw(PlayersTurn.ToString());
-                PlayersTurn.Points++;
-                OnNewGame();
-                return;
+                Interlocked.Increment(ref turns);
+                Tile t = SelectTile(tile);
+
+                // Use thread safe here
+                tiles.Remove(t);
+
+
+                // Pass the correct tile to player to make move
+                PlayersTurn.MakeMove(t);
+
+                if (CheckWinner() == true)
+                {
+                    OnWinLossOrDraw(PlayersTurn.ToString());
+                    PlayersTurn.Points++;
+                    OnNewGame();
+                    return;
+                }
+
+                if ((CheckDraw() == true) && (CheckWinner() == false))
+                {
+                    OnWinLossOrDraw("Draw!");
+                    Draw++;
+                    OnNewGame();
+                    return;
+                }
+
+                // Change who's turn it is
+                if (PlayersTurn == user)
+                    PlayersTurn = cpu;
+                else
+                    PlayersTurn = user;
             }
-
-            if ((CheckDraw() == true) && (CheckWinner() == false))
-            {
-                OnWinLossOrDraw("Draw!");
-                Draw++;
-                OnNewGame();
-                return;
-            }
-
-            // Change who's turn it is
-            if (PlayersTurn == user)
-                PlayersTurn = cpu;
-            else
-                PlayersTurn = user;
-
         }
 
         // Depending on the button clicked, corrosponding tile should be used
@@ -201,7 +213,7 @@ namespace TTT.ViewModel
 
         public bool CheckDraw()
         {
-            if (Turns == 9)
+            if (turns == 9)
                 return true;
             else
                 return false;
