@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\TicTacToe.UnitTests.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\TicTacToe.UnitTests.pdb
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\TTT.ViewModel.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\TTT.ViewModel.pdb
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\obj\Debug\TicTacToe.UnitTests.csprojAssemblyReference.cache
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\obj\Debug\TicTacToe.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\obj\Debug\TicTacToe.UnitTests.csproj.CopyComplete
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\obj\Debug\TicTacToe.UnitTests.dll
+C:\Users\User\source\repos\TicTacToe\TicTacToe.UnitTests\obj\Debug\TicTacToe.UnitTests.pdb

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace TTT.ViewModel
 {
@@ -38,7 +32,7 @@ namespace TTT.ViewModel
         internal Tile T21;
         internal Tile T22;
 
-        public Board(ArrayList buttons)
+        public Board()
         {
             SetTiles();
             AssignTiles();
@@ -179,7 +173,7 @@ namespace TTT.ViewModel
             }
         }
 
-        private bool CheckWinner()
+        public bool CheckWinner()
         {
             // Horizontal checks
             if ((T00.Value == T01.Value) && (T01.Value == T02.Value) && (T02.Value != ""))
@@ -209,10 +203,23 @@ namespace TTT.ViewModel
 
         public bool CheckDraw()
         {
-            if (Turns == 9)
-                return true;
-            else
-                return false;
+            return (Turns == 9);
         }
+
+        public void Test_SetTileValues(string s00, string s01, string s02, 
+            string s10, string s11, string s12, 
+            string s20, string s21, string s22)
+        {
+            T00.Value = s00;
+            T01.Value = s01;
+            T02.Value = s02;
+            T10.Value = s10;
+            T11.Value = s11;
+            T12.Value = s12;
+            T20.Value = s20;
+            T21.Value = s21;
+            T22.Value = s22;
+        }
+
     }
 }

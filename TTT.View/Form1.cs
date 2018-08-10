@@ -8,7 +8,6 @@ namespace TTT.View
 {
     public partial class MainForm : Form
     {
-        ArrayList buttons = new ArrayList();
         Board board;
         User user;
         Computer computer;
@@ -27,28 +26,26 @@ namespace TTT.View
         {
             optionsGroupBox.Enabled = false;
 
-            Button button = (Button)sender;
-            if (button.Text == "")
+            var button = (Button)sender;
+            if (button.Text != "") return;
+            // TODO: Handle logic on another thread
+            var playerThread = new Thread(() => board.PlayTurn(button.Name));
+            playerThread.Start();
+
+            // Board handles the turn
+            // Uncomment if running on single thread
+            //board.PlayTurn(button.Name);
+
+            playerThread.Join();
+            if ((singlePlayer.Checked) && (board.PlayersTurn is Computer))
             {
-                // TODO: Handle logic on another thread
-                Thread playerThread = new Thread(() => board.PlayTurn(button.Name));
-                playerThread.Start();
+                // If computers turn
+                // TODO: Same as above, logic on another thread
+                var opponentThread = new Thread(() => board.PlayTurn(computer.MakeMove()));
+                opponentThread.Start();
 
-                // Board handles the turn
                 // Uncomment if running on single thread
-                //board.PlayTurn(button.Name);
-
-                playerThread.Join();
-                if ((singlePlayer.Checked) && (board.PlayersTurn is Computer))
-                {
-                    // If computers turn
-                    // TODO: Same as above, logic on another thread
-                    Thread opponentThread = new Thread(() => board.PlayTurn(computer.MakeMove()));
-                    opponentThread.Start();
-
-                    // Uncomment if running on single thread
-                    //board.PlayTurn(computer.MakeMove());
-                }
+                //board.PlayTurn(computer.MakeMove());
             }
         }
 
@@ -65,7 +62,7 @@ namespace TTT.View
 
         private void InitialiseMembers()
         {
-            board = new Board(buttons);
+            board = new Board();
             user = new User(board, "X");
             computer = new Computer(board, "O");
             board.SetMembers(user, computer);
@@ -112,7 +109,7 @@ namespace TTT.View
             ResetGame();
         }
 
-        private void GameWinLossOrDraw(object sender, WinLossOrDrawEventArgs e)
+        private static void GameWinLossOrDraw(object sender, WinLossOrDrawEventArgs e)
         {
             MessageBox.Show(e.Result);
         }
